@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Video Section */
+        .video-section {
+            width: 100%;
+            height: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .video-section iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 3rem;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .about-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 3rem;
+            padding: 0 1rem;
+        }
+        .grid-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .grid-item h3 {
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+        .grid-item p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Hover effects */
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Black glowing effect */
+        .grid-item:hover {
+            border: 2px solid black;
+            box-shadow: 0 0 20px black;
+        }
+
+        /* Sliding Effect */
+        .grid-item {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 0.8s forwards;
+        }
+        .grid-item:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+        .grid-item:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Section with autoplay and loop -->
+    <section class="video-section">
+        <iframe src="https://macronepal.com/wp-content/uploads/2024/11/OUR-AIM-IS-TO-MAKE-ONLINE-HOTEL-BOOKING-ALL-OVER-NEPAL.mp4" 
+            allow="autoplay; encrypted-media" allowfullscreen 
+            autoplay loop muted>
+        </iframe>
+    </section>
+
+    <!-- About Us Content -->
+    <section class="about-section">
+        <h1>Welcome to Our Hotel Booking Service</h1>
+        <p>We are dedicated to providing a seamless hotel booking experience across Nepal. Our goal is to make hotel reservations easy and accessible for everyone, allowing travelers to find the best accommodations with just a few clicks.</p>
+        <p>We offer a wide range of hotels to choose from, ensuring that you find the perfect place to stay based on your preferences and budget. Whether you're traveling for business or leisure, we've got you covered!</p>
+        <p>Our platform also provides detailed information, reviews, and booking options to help you make informed decisions. We strive to make the booking process simple, transparent, and hassle-free.</p>
+    </section>
+
+    <!-- Grid View Section -->
+    <section class="grid-container">
+        <div class="grid-item">
+            <img src="https://3.imimg.com/data3/JV/KJ/MY-15827078/hotels-booking.jpg" alt="Placeholder Image">
+            <h3>Our Services</h3>
+            <p>Explore the wide range of hotel booking options we provide, tailored to suit every type of traveler.</p>
+        </div>
+        <div class="grid-item">
+            <img src="https://www.consumersenergy.com/-/media/CE/Images/Content%20Images/feature-images/business/man-on-the-phone-in-office.jpg" alt="Placeholder Image">
+            <h3>Customer Support</h3>
+            <p>We are here to assist you 24/7. Our customer support is always ready to help with any inquiries or issues.</p>
+        </div>
+        <div class="grid-item">
+            <img src="https://cdn.shopify.com/s/files/1/0070/7032/articles/payment_options.png?v=1729609990" alt="Placeholder Image">
+            <h3>Secure Payment</h3>
+            <p>Our platform offers secure payment options to ensure a smooth and safe transaction process for your bookings.</p>
+        </div>
+        <div class="grid-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRJQb5TtarqwQDAmtlZZL0LEC2D64GIujTcg&s" alt="Placeholder Image">
+            <h3>Booking Flexibility</h3>
+            <p>Enjoy the flexibility to book, modify, or cancel your reservations with ease and convenience.</p>
+        </div>
+    </section>
+</body>
+</html>

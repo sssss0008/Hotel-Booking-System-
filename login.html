@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking App</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 320px;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #2ecc71;  /* Green */
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        .input-box input, .input-box select {
+            padding: 12px;
+            width: 100%;
+            border: 2px solid #2ecc71;  /* Green */
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            background-color: #2ecc71;  /* Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;  /* Darker Green */
+        }
+
+        .link {
+            color: #2ecc71;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .password-toggle {
+            background-color: transparent;
+            color: #2ecc71;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Toggling Forms */
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Hotel Booking Nepal</h2>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-container active">
+            <h3>Login</h3>
+            <div class="input-box">
+                <input type="text" id="login-username" placeholder="Username" />
+                <div id="login-error" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="password" id="login-password" placeholder="Password" />
+                <button type="button" class="password-toggle" onclick="togglePasswordVisibility('login-password')">Show Password</button>
+                <div id="login-error-password" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <select id="login-role">
+                    <option value="user">User</option>
+                    <option value="hotel-owner">Hotel Owner</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <div id="login-error-role" class="error-message"></div>
+            </div>
+            <button class="btn" onclick="login()">Login</button>
+            <p>Don't have an account? <span class="link" onclick="toggleForms('register-form')">Register</span></p>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="form-container">
+            <h3>Register</h3>
+            <div class="input-box">
+                <input type="text" id="register-name" placeholder="Full Name" />
+                <div id="register-error-name" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="text" id="register-address" placeholder="Address" />
+                <div id="register-error-address" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="email" id="register-email" placeholder="Email" />
+                <div id="register-error-email" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="text" id="register-username" placeholder="Username" />
+                <div id="register-error" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="password" id="register-password" placeholder="Password" />
+                <button type="button" class="password-toggle" onclick="togglePasswordVisibility('register-password')">Show Password</button>
+                <div id="register-error-password" class="error-message"></div>
+            </div>
+            <div class="input-box">
+                <select id="role">
+                    <option value="user">User</option>
+                    <option value="hotel-owner">Hotel Owner</option>
+                </select>
+                <div id="register-error-role" class="error-message"></div>
+            </div>
+            <button class="btn" onclick="register()">Register</button>
+            <p>Already have an account? <span class="link" onclick="toggleForms('login-form')">Login</span></p>
+        </div>
+    </div>
+
+    <script>
+        const users = [];
+        const adminUsername = "admin";
+        const adminPassword = "admin123";
+
+        // Toggle between forms (Login and Register)
+        function toggleForms(formId) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+
+            if (formId === 'register-form') {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+            } else {
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+            }
+        }
+
+        // Toggle Password Visibility
+        function togglePasswordVisibility(id) {
+            const passwordField = document.getElementById(id);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        // Register a new user
+        function register() {
+            const name = document.getElementById("register-name").value;
+            const address = document.getElementById("register-address").value;
+            const email = document.getElementById("register-email").value;
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+            const role = document.getElementById("role").value;
+
+            // Clear previous error messages
+            clearErrorMessages();
+
+            if (!name || !address || !email || !username || !password || !role) {
+                showErrorMessage("register-error", "Please fill out all fields.");
+                return;
+            }
+
+            // Save the user to the "database"
+            const newUser = { name, address, email, username, password, role };
+            users.push(newUser);
+            alert("Registration successful!");
+        }
+
+        // Login a user based on role
+        function login() {
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+            const role = document.getElementById("login-role").value;
+
+            // Clear previous error messages
+            clearErrorMessages();
+
+            if (role === "admin" && username === adminUsername && password === adminPassword) {
+                alert("Admin logged in successfully.");
+                return;
+            }
+
+            const user = users.find(user => user.username === username && user.password === password && user.role === role);
+            if (!user) {
+                showErrorMessage("login-error", "Invalid username, password, or role.");
+                return;
+            }
+
+            if (user.role === "admin") {
+                alert("Welcome Admin! You can manage the system.");
+            } else if (user.role === "hotel-owner") {
+                alert("Welcome Hotel Owner! You can manage your hotel.");
+            } else {
+                alert("Welcome User! You can make bookings.");
+            }
+        }
+
+        // Clear error messages
+        function clearErrorMessages() {
+            document.getElementById("login-error").textContent = "";
+            document.getElementById("login-error-password").textContent = "";
+            document.getElementById("register-error").textContent = "";
+            document.getElementById("register-error-password").textContent = "";
+            document.getElementById("register-error-name").textContent = "";
+            document.getElementById("register-error-address").textContent = "";
+            document.getElementById("register-error-email").textContent = "";
+            document.getElementById("register-error-role").textContent = "";
+        }
+
+        // Show error message
+        function showErrorMessage(id, message) {
+            document.getElementById(id).textContent = message;
+        }
+    </script>
+
+</body>
+</html>

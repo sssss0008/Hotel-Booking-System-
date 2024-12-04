@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: auto;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Submit Your Feedback</h2>
+
+    <!-- Feedback Form -->
+    <form id="feedback-form" method="POST" action="feedback.php">
+        <textarea id="feedback" name="feedback" placeholder="Write your feedback here" required></textarea><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <div class="error-message" id="error-message"></div>
+
+    <script>
+        // JavaScript to validate feedback form before submission
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            const feedback = document.getElementById('feedback').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            if (feedback === "") {
+                errorMessage.textContent = "Feedback cannot be empty.";
+                event.preventDefault(); // Prevent form submission
+            } else {
+                errorMessage.textContent = ""; // Clear any error message
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0d1117;
+      color: #e5e5e5;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #161b22;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #f39c12;
+    }
+
+    .navbar ul {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar ul li {
+      position: relative;
+    }
+
+    .navbar ul li a {
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      background: #f39c12;
+      color: #161b22;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to bottom, #1c2027, #161b22);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #f39c12;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #e5e5e5;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-box {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .feature-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s;
+    }
+
+    .feature-box:hover img {
+      filter: brightness(1);
+    }
+
+    .feature-box .content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .feature-box .content h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+
+    /* Footer */
+    footer {
+      background: #161b22;
+      color: #e5e5e5;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    footer .social-icons a {
+      color: #f39c12;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      color: #e5e5e5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🌐 Hotel Booking Nepal</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="BookHotels.html"> Book Hotels</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="login.html"> Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Welcome to Hotel Booking Nepal</h1>
+    <p>Discover Nepal and Book Best Hotels all across the country</p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature-box">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/d3/30/81/caption.jpg?w=700&h=-1&s=1" alt="Feature 1">
+      <div class="content">
+        <h3>Book Hotels </h3>
+        <p>Explore and book the best Hotels in Nepal.</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse1.mm.bing.net/th?id=OIG1.q0pT_YD3.ASpKbIFypGn&pid=ImgGn alt="Feature 2">
+      <div class="content">
+        <h3>Cash Less Transaction</h3>
+        <p>Booking Hotels Online Without Cash.</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse2.mm.bing.net/th?id=OIG3.zSZtjAYqxQ0gTmuSBRy3&pid=ImgGn" alt="Feature 3">
+      <div class="content">
+        <h3>Fast and Reliable </h3>
+        <p>Making Your Booking Fast and Reliable </p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse4.mm.bing.net/th?id=OIG2.vJda5MWlCZbzk8N3bVJM&pid=ImgGn" alt="Feature 4">
+      <div class="content">
+        <h3>High Security </h3>
+        <p>Using Latest Security Pratice to Secure Your Data.</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse3.mm.bing.net/th?id=OIG1.cxBj4Hb7Srrm6vMgZdfV&pid=ImgGn" alt="Feature 5">
+      <div class="content">
+        <h3>Modern Technology </h3>
+        <p>Using Best Technolgy in the World .</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse3.mm.bing.net/th?id=OIG4.InuitpK1cibD89vmr.EQ&pid=ImgGn" alt="Feature 6">
+      <div class="content">
+        <h3>Feed Back </h3>
+        <p>We Listen to the User Query and issue that they have faced.</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://tse3.mm.bing.net/th?id=OIG3.4an6YByke0s5e8qqwwU7&pid=ImgGn" alt="Feature 7">
+      <div class="content">
+        <h3>Wide Network </h3>
+        <p>We Have Connected Best Hotels in Our Platform .</p>
+      </div>
+    </div>
+    <div class="feature-box">
+      <img src="https://media.istockphoto.com/id/1496092680/vector/woman-cancel-a-booking-of-hotel-in-travel-application-or-on-smartphone-screen-horizontal.jpg?s=612x612&w=0&k=20&c=yU3eoMBKtJCG52wk0Tak6KGL3GLeypJOpKZRCTfq73o=" alt="Feature 8">
+      <div class="content">
+        <h3>Flexbility </h3>
+        <p>Book and Cancel booking with out any issue and charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="home.html">🌐</a>
+      <a href="aboutus.html">📘</a>
+      <a href="feedback.html">🐦</a>
+    </div>
+    <p>&copy; 2024  Hotel Booking Nepal. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
